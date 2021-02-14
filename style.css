@@ -1,0 +1,82 @@
+body{
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    background:#6ea8ea;
+}
+
+header h1{
+    text-align:center;
+}
+
+#display{
+    border:1px solid black;
+    border-radius:5px;
+    background: lightgrey;
+    color:black;
+    width:650px;
+    height:100px;
+    margin:25px auto;
+    text-align:center;
+    padding-top:35px;
+    font-size:50px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.keys{
+    border-top:3px solid black;
+    padding-top:50px;
+    text-align:center;
+}
+
+.keys button {
+    width:100px;
+    height:100px;
+    font-size:25px;
+}
+
+.big-font{
+    font-size:35px;
+    font-weight:bold;
+}
+
+#clear{
+    border-color:red;
+}
+
+
+
+.variables{
+    margin-top:25px;
+}
+
+.variables div{
+    margin:auto;
+    width:250px;
+    border:1px solid black;
+    height:100px;
+    background:rgba(255,255,255,.65);
+    display:inline-block;
+    vertical-align:top;
+}
+
+#g {
+    height:50px;
+    width:150px;
+    font-size:12pt;
+    margin-top:25px;
+    margin-left:25px;
+}
+
+#test, #truthtable{
+    display:inline-block;
+    vertical-align:top;
+    width:250px;
+}
+
+.practice{
+    height:100vh;
+    width:100vw;
+    position:absolute;
+    top:0;
+    display:none;
+}

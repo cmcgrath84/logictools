@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Practice Propositional Logic</title>
+    <meta name="og:description" content="Practice writing formulas and truth tables!" />
+    <meta property="og:image" content="http://coreymcgrath.space/clouds.jpg" />
+    <meta name="viewport" content="width=device-width">
+    <link href="style.css" rel="stylesheet">
+    <link href="truthtables.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <h1>Practice Formula Syntax</h1>
+    </header>
+    
+    <main>
+        <div class='container'>
+            <section id='display'>
+            </section>
+
+            <section class='keys'>
+                <section class='connect'>
+
+                    <button id='a' value='('>
+                        (
+                    </button>
+
+                    <button id='b' value=')'>
+                        )
+                    </button>
+
+                    <button id='c' value='&'>
+                        &
+                    </button>
+
+                    <button id='d' value='∨'>
+                        ∨
+                    </button>
+
+                    <button id='e' value='~'>
+                        ~
+                    </button>
+
+                    <button id='f' value='⊃' class='big-font'>
+                        ⊃
+                    </button>
+
+                    <button id='back'>
+                        Back
+                    </button>
+
+                    <button id='clear'>
+                        Clear
+                    </button>
+                </section>
+
+                <section class='variables'>
+
+
+
+                    <div>
+                    <input size='1' maxlength='1' id='variable'><button id='g'>Enter variable.</button></div>
+
+                    <button id='test'>
+                        Test your formula
+                    </button>
+
+                    <button id='truthtable'>
+                        Do a truth table
+                    </button>
+                </section>
+
+            </section>
+        </div>
+        <div class='container'>
+
+                <header>
+                    <h1>
+                        Practice Truth Tables
+                    </h1>
+                </header>
+
+                <div id='table'>
+                </div>
+            <div class='container'>
+                <button id='toSyntax'>
+                    Go back
+                </button>
+                <button id='check'>
+                    Check your table
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.0.0/math.js' type='text/javascript'></script>
+<script src='UI.js' type='text/javascript'></script>
+<script src='check.js' type='text/javascript'></script>
+<script src='truthtables.js' type='text/javascript'></script>
+</html>

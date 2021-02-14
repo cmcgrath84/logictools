@@ -1,0 +1,48 @@
+main, .container{
+    text-align:center;
+}
+
+.tt-row{
+    max-width:min-content;
+    height:250px;
+    display:inline-block;
+    text-align:center;
+}
+
+.tt{
+    display:inline-block;
+    font-size:48px;
+}
+
+.var{
+    border-right:1px solid black;
+    height:fit-content;
+}
+
+.toggle{
+    cursor:pointer;
+}
+
+.toggle:hover{
+    background:rgba(255,255,255,0.2);
+    border-radius:10px;
+}
+
+.tt-heading{
+    padding:48px 24px 0;
+    border-bottom:5px solid black;
+    font-size:48px;
+}
+
+.tt-formula{
+    width:max-content;
+}
+
+#check, #toSyntax{
+    margin:50px;
+    padding:25px;
+    border:2px solid black;
+    border-radius:3px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size:20px;
+}
