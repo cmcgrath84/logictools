@@ -42,6 +42,18 @@ document.getElementById('truthtable').addEventListener("click", function(){
 
 });
 
+/*
+
+The event listener for the "Go back" button.
+
+It does a few things:
+
+    1. Makes the syntax interface visible.
+    2. Hides the truth-table interface.
+    3. Removes the current truth-table from the truth-table interface.
+
+*/
+
 document.getElementById('toSyntax').addEventListener("click", function() {
     document.getElementsByTagName('header')[0].style.display = "block"; 
     var container = document.getElementsByClassName('container');
@@ -53,11 +65,13 @@ document.getElementById('toSyntax').addEventListener("click", function() {
     }
 });
 
+// The event listener for the "Check your table" button on the truth-table interface just runs the testTable function.
+
 document.getElementById('check').addEventListener("click", function() {
   testTable();
 });
 
-
+// This function just toggles one truth-value on the truth-table from "true" to "false" or vice-versa
 
 function toggle(column, row){
     var column = document.getElementById('column' + column);
@@ -69,6 +83,10 @@ function toggle(column, row){
     }
 }
 
+// If testVariableColumns returns false then this function tells the user there's a mistake in the variable columns.
+
+// Otherwise it calls the testTheFormula function, where the bulk of the testing occurs.
+
 function testTable(){
     if (testVariableColumns()){
          testTheFormula();
@@ -76,6 +94,18 @@ function testTable(){
         alert('There is a mistake in one of your variable columns.');
     }
 }
+
+/* 
+
+This function checks whether the variable columns (columns for p, q, r, and so on) are correct.
+
+The innermost variable column should alternate T, F, T, F...
+
+The next should alternate T, T, F, F, T, T, F, F...
+
+And so on.
+
+*/
 
 function testVariableColumns(){
     var isGood = true;
@@ -103,6 +133,16 @@ function testVariableColumns(){
     return isGood;
 }
 
+/*
+
+The program automatically builds the table, with the exception of assignment truth-values to the right places.
+
+In order to know how many columns and rows a table should have, it needs to know how many variables the formula contains.
+
+This function counts the variables.
+
+*/
+
 function howManyVariables(formula){
     var variables = [];
     var characters = formula.split('');
@@ -116,9 +156,15 @@ function howManyVariables(formula){
     return variables;
 }
 
-function howManyRows(columns){
-    return Math.pow(2, columns);
+// Determines the number of rows the table requires.
+
+// For n variables, the number of rows is 2^n.
+
+function howManyRows(variables){
+    return Math.pow(2, variables);
 }
+
+// Creates the HTML elements that compose the truth-table, and attaches them to the document.
 
 function makeTheTable(columns, rows, variables, formula){
     var table = document.getElementById('table')
@@ -151,6 +197,10 @@ function makeTheTable(columns, rows, variables, formula){
     }
 }
 
+// returns an object whose keys are variable names and values are objects whose keys are row numbers and values are truth-values
+
+// this is basically a map of which variables have which truth values on each row
+
 function getVariableValues(){
     var values = {};
     var variables = [];
@@ -173,6 +223,10 @@ function getVariableValues(){
     return values;
 }
 
+// if outermost set of parentheses included in formula, returns a string where they have been removed
+
+// takes care of some other formatting stuff as well
+
 function formatFormula(toBeFormatted = document.getElementsByClassName('tt-formula').innerHTML){
     if (removeParens(toBeFormatted)){
         var noOuterParens = toBeFormatted.slice(1,-1);
@@ -184,6 +238,8 @@ function formatFormula(toBeFormatted = document.getElementsByClassName('tt-formu
     return formula;
 }
 
+// did you write a good truth table? or did you mess something up? find out.
+
 function sendResults(result){
     if (result){
         alert('Your truth table is correct.');
@@ -191,6 +247,10 @@ function sendResults(result){
         alert('There is a mistake in your truth table.');
     }
 }
+
+// this is where the magic happens (the formula's truth-value on each row is tested against the truth-value that it *ought* to have).
+
+// detailed notes coming soon.
 
 function testTheFormula(intermediate = '', firstIteration = true){
     var formulaValues = {};
@@ -347,197 +407,3 @@ function testTheFormula(intermediate = '', firstIteration = true){
         }
     }
 }
-
-
-//
-//// functions that check if a string is a connective or a variable.
-//
-//function isAConnective(char){
-//    return "&∨~⊃".includes(char);
-//}
-//
-//function isAVariable(char){
-//    return "abcdefghijklmnopqrstuvwxyz".includes(char);
-//}
-//
-//
-//// this function will take a string and start at an index (the position of a connective in the formula), moving left or right checking each character and counting the left and right parentheses. when the program is looking for the main connective of a formula, it will use this information. the main connective is not found inside any parentheses. (if the formula has outer parentheses, they will be stripped away.)
-//
-//function parenCheck(formula, index, direction){
-//    var leftParen = 0;
-//    var rightParen = 0;
-//    var done = false;
-//    while (done === false){
-//        if (index === 0 && direction === 'left'){
-//            done = true;
-//        }
-//        if (index === formula.length && direction === 'right'){
-//            done = true;
-//        }
-//        if (direction === 'left'){
-//            index--;
-//            if (formula[index] === '('){
-//                leftParen++;
-//                if (rightParen < leftParen){
-//                    done = true;
-//                } 
-//            }
-//            if (formula[index] === ')'){
-//                rightParen++;
-//            }
-//        } else if (direction === 'right'){
-//            index++;
-//            if (formula[index] === ')'){
-//                rightParen++;
-//                if (rightParen > leftParen){
-//                    done = true;
-//                } 
-//            }
-//            if (formula[index] === '('){
-//                leftParen++;
-//            }
-//        }
-//    }
-//    return [leftParen,rightParen];
-//}
-//
-//// if the connective is a negation sign, this function will be used instead of the one above. it gathers more information. for instance, it tells us whether there is another connective found outside all parentheses. if so, then the negation sign is not the main connective.
-//
-//function negParenCheck(formula, index, direction){
-//    var leftParens = 0;
-//    var rightParens = 0;
-//    var negs = 0;
-//    var connects = 0;
-//    var done = false;
-//    while (done === false){
-//        
-//        if (index === 0 && direction === 'left'){
-//            done = true;
-//        }
-//        if (index === formula.length && direction === 'right'){
-//            done = true;
-//        }
-//        
-//        
-//        if (direction === 'left'){
-//            index--;
-//        } else if (direction === 'right'){
-//            index++;
-//        }
-//        if (formula[index] === '~'){
-//            negs++;
-//        } else if (formula[index] === '('){
-//            leftParens++;
-//        } else if (formula[index] === ')'){
-//            rightParens++;
-//        } else if (isAConnective(formula[index]) && formula[index] !== '~' && leftParens === rightParens){
-//            connects++;
-//        }
-//    }
-//    return [negs, leftParens, rightParens, connects];
-//}
-//
-//// this function is used to determine whether a formula has outer parentheses that need to be removed. moving from left to right, it counts parentheses and tracks whether they are closed by the end. if the first character in the formula is a left paren, and the last character is a right paren that closes it, this formula returns true.
-//
-//function removeParens(formula){
-//    var firstParen = false;
-//    var firstParenOpen = true;
-//    var lastParen = formula[formula.length - 1] === ')';
-//    var leftParens = 0;
-//    var rightParens = 0;
-//    var closedParens = 0;
-//    for (var i = 0; i < formula.length; i++){
-//        if (formula[i] === '('){
-//            if (i === 0){
-//                firstParen = true;
-//            }
-//            leftParens++;
-//            if (rightParens === leftParens){
-//                closedParens++;
-//            }
-//        } else if (formula[i] === ')'){
-//            rightParens++
-//            if (rightParens === leftParens){
-//                closedParens++;
-//                if (closedParens === 1 && i < formula.length - 1){
-//                    firstParenOpen = false;
-//                }
-//            }
-//        }
-//    }
-//    if ((firstParen && lastParen) && firstParenOpen){
-//        return true;
-//    } else {
-//        return false;
-//    }
-//}
-//
-//// this function takes a complex formula and the index of its main connective and returns an array of constituent formulas.
-//
-//function getConstituents(formula, index){
-//    var constituents = [];
-//    if (formula[index] === '~'){
-//        constituents.push(formula.slice(index + 1));
-//    } else {
-//        if (formula.slice(0, index).length === 1 || formula[0] === '~'){
-//            constituents.push(formula.slice(0, index));
-//        } else {
-//            constituents.push(formula.slice(1, index -1));
-//        }
-//        if (formula.slice(index + 1).length === 1 || formula[index + 1] === '~') {
-//            constituents.push(formula.slice(index + 1))
-//        } else{
-//            constituents.push(formula.slice(index + 2, -1));
-//        }
-//    }
-//    return constituents;
-//}
-
-//// for shorter formulas we might as well use simpler tests. then if it's longer it goes to compoundFormula.
-//
-//function preliminaryTests(formula){
-//    if (formula.length === 1){
-//        if (isAVariable(formula)){
-//            good();
-//        } else {
-//            bad();
-//        }
-//    } else if (formula.length === 2){
-//        if (formula[0] === '~' && isAVariable(formula[1])){
-//            good();
-//        } else {
-//            bad();
-//        }
-//    } else if (isAConnective(formula[formula.length - 1])){
-//        bad();
-//    } else {
-//        compoundFormula(formula, true);
-//    }
-//}
-//
-//// when a compound formula is subjected to a recursive test this function is used to test its constituents. if it's an atomic formula it has to be a variable, if it's two characters long it has to be the negation of a well formed atomic formula. otherwise it gets the recursive test. simple negations could be handled just as well by compoundFormula and I might change this in the future.
-//
-//function checkConstituent(formula){
-//        if (formula.length === 1) {
-//            if (isAVariable(formula)){
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        } else if (formula.length === 2) {
-//            if (formula[0] === '~' && isAVariable(formula[1])) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        } else {
-//            return compoundFormula(formula, false);
-//        }
-//}
-//
-//// anything more complex than the negation of an atomic formula gets this recursive test. it does the following: 1. checks whether the formula has outer parentheses and strips them if necessary; 2. puts the index of every connective in an array; 3. tests each connective to see if it is the main connective; 4. if more than one main connective has been identified, the formula has bad grammar; 5. otherwise, runs getConstituents to split the formula into its constituents; 6. counts up every constituent for which checkConstituents returns true; 7. compares the number of constituents to the number which returned true; 8. if those numbers are equal: if the function is being run on a whole formula, calls good(), and if it is being run on a constituent of some more complex formula, returns true.
-//
-//// the firstIteration argument helps us distinguish between whole formulas and their constituents. since checkConstituents calls compoundFormula, we are able to test formulas of arbitrary complexity.
-//
-//function compoundFormula(toTest){
-//}
