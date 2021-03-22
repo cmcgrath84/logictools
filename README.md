@@ -5,7 +5,8 @@
 1. What is this program?
 2. Practice Logical Syntax
 3. Practice Truth Tables
-4. What is propositional logic?
+4. How will this program be improved in the future?
+5. What is propositional logic?
 
 ## What is this program? 
 
@@ -45,6 +46,16 @@ To use this part of the program:
 2. When finished, click 'Check your table' to find out whether your truth table is correct.
 
 If your table has an error, the program will let you know whether it is in the variable row or final row.
+
+## How will this program be improved in the future?
+
+I have many plans to continue building this program. Some things to look forward to:
+
+1. Using Vue.js or React.js for the user interface.
+2. Mobile compatibility.
+3. Intermediate truth table columns.
+4. Adding a new feature that allows one to determine the truth-values of compound sentences given an assignment of truth-values to atomic sentences.
+5. A version that does not run in the browser! Probably using Python.
 
 ## What is propositional logic?
 
