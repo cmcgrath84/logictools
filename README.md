@@ -132,36 +132,36 @@ The truth-values of conjunctions, disjunctions, negations, and conditionals depe
 
 Each of these rules allows us to draw up a table of what the truth-value of a compound sentence would be given the truth-values of its constituent parts. For instance, in the case of conjunction:
 
-[ p | q | p & q ]
-[---|---|-------]
-[ T | T |   T   ]
-[ T | F |   F   ]
-[ F | T |   F   ]
-[ F | F |   F   ]
+| p | q | p & q |
+|---|---|-------|
+| T | T |   T   |
+| T | F |   F   |
+| F | T |   F   |
+| F | F |   F   |
 
 And in the case of disjunction:
 
-[ p | q | p ∨ q ]
-[---|---|-------]
-[ T | T |   T   ]
-[ T | F |   T   ]
-[ F | T |   T   ]
-[ F | F |   F   ]
+| p | q | p ∨ q |
+|---|---|-------|
+| T | T |   T   |
+| T | F |   T   |
+| F | T |   T   |
+| F | F |   F   |
 
 And in the case of negation:
 
-[ p |~q ]
-[---|---]
-[ T | F ]
-[ F | T ]
+| p |~q |
+|---|---|
+| T | F |
+| F | T |
 
 And in the case of conditionals:
 
-[ p | q | p ⊃ q ]
-[---|---|-------]
-[ T | T |   T   ]
-[ T | F |   F   ]
-[ F | T |   T   ]
-[ F | F |   T   ]
+| p | q | p ⊃ q |
+|---|---|-------|
+| T | T |   T   |
+| T | F |   F   |
+| F | T |   T   |
+| F | F |   T   |
 
 More complex truth tables are possible as well — for every propositional form, there is a truth table.
