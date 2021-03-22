@@ -2,13 +2,13 @@
 ## User's Manual
 
 ## Table of Contents
-1. [What is this program?](#what-is)
-2. [Practice Logical Syntax](#logical-syntax)
-3. [Practice Truth Tables](#truth-tables)
-4. [How will this program be improved in the future?](#how-improved)
-5. [What is propositional logic?](#prop-logic)
+1. [What is this program?](#what-is-this-program)
+2. [Practice Logical Syntax](#practice-logical-syntax)
+3. [Practice Truth Tables](#practice-truth-tables)
+4. [How will this program be improved in the future?](#how-will-this-program-be-improved-in-the-future)
+5. [What is propositional logic?](#what-is-propositional-logic)
 
-## What is this program? {#what-is}
+## What is this program?
 
 This is a program I made for my students to study with when we study propositional logic. It has two parts:
 1. Practice Logical Syntax
@@ -18,7 +18,7 @@ The program is useful for students who are just beginning their study of formal 
 
 If you don't know what that means, the final section is for you. It is written in language that a graduate of my introductory logic course should be able to understand (so it is not as mathematically rigorous as it could be). If you know this material, feel free to ignore the final section and focus on the next two, on the actual functioning of the program.
 
-## Practical Logical Syntax {#logical-syntax}
+## Practice Logical Syntax
 
 This part of the program allows you to write strings of symbols and see whether they are well-formed formulas. You can include the outermost set of parentheses in your formula or leave it off. Right now, the program only allows you to enter propositional variables, not sentence letters, so there is no option to try and write sentences, atomic or compound. 
 
@@ -35,7 +35,7 @@ The bottom row of buttons have the following functions:
 - 'Test your formula' will tell you whether you have written a well-formed formula in the display.
 - 'Do a truth table' will check whether the string of symbols in the display is a well-formed formula, and if so, take you to Practice Truth Tables.
 
-## Practice Truth Tables {#truth-tables}
+## Practice Truth Tables
 
 This part of the program allows you to assign truth-values to each propositional form on each row, and then check if you have assigned the correct truth-value at each spot. The program automatically determines which variables you will need and how many rows your table should have. Future versions of the program may allow users to determine these things for themselves.
 
@@ -47,7 +47,7 @@ To use this part of the program:
 
 If your table has an error, the program will let you know whether it is in the variable row or final row.
 
-## How will this program be improved in the future? {#how-improved}
+## How will this program be improved in the future?
 
 I have many plans to continue building this program. Some things to look forward to:
 
