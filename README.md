@@ -133,7 +133,7 @@ The truth-values of conjunctions, disjunctions, negations, and conditionals depe
 Each of these rules allows us to draw up a table of what the truth-value of a compound sentence would be given the truth-values of its constituent parts. For instance, in the case of conjunction:
 
 | p | q | p & q |
-|---|---|-------|
+|:-:|:-:|:-----:|
 | T | T |   T   |
 | T | F |   F   |
 | F | T |   F   |
@@ -142,7 +142,7 @@ Each of these rules allows us to draw up a table of what the truth-value of a co
 And in the case of disjunction:
 
 | p | q | p ∨ q |
-|---|---|-------|
+|:-:|:-:|:-----:|
 | T | T |   T   |
 | T | F |   T   |
 | F | T |   T   |
@@ -151,14 +151,14 @@ And in the case of disjunction:
 And in the case of negation:
 
 | p |~q |
-|---|---|
+|:-:|:-:|
 | T | F |
 | F | T |
 
 And in the case of conditionals:
 
 | p | q | p ⊃ q |
-|---|---|-------|
+|:-:|:-:|:-----:|
 | T | T |   T   |
 | T | F |   F   |
 | F | T |   T   |
