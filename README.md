@@ -57,7 +57,7 @@ I have many plans to continue building this program. Some things to look forward
 4. Adding a new feature that allows one to determine the truth-values of compound sentences given an assignment of truth-values to atomic sentences.
 5. A version that does not run in the browser! Probably using Python.
 
-## What is propositional logic? {#prop-logic}
+## What is propositional logic?
 
 Propositional logic is an artificial language — a language that human beings made up. Some people are interested in it because it models interesting features of our own logic and thought. Other people are interested in it for its own sake. This program will help you learn a few useful basics of the language.
 
