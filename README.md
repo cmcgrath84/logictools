@@ -2,13 +2,12 @@
 ## User's Manual
 
 ## Table of Contents
-1. [What is this program?](#what-is-this-program)
-2. [Practice Logical Syntax](#practice-logical-syntax)
-3. [Practice Truth Tables](#practice-truth-tables)
-4. [How will this program be improved in the future?](#how-will-this-program-be-improved-in-the-future)
-5. [What is propositional logic?](#what-is-propositional-logic)
+1. What is this program?
+2. Practice Logical Syntax
+3. Practice Truth Tables
+4. What is propositional logic?
 
-## What is this program?
+## What is this program? 
 
 This is a program I made for my students to study with when we study propositional logic. It has two parts:
 1. Practice Logical Syntax
@@ -18,7 +17,7 @@ The program is useful for students who are just beginning their study of formal 
 
 If you don't know what that means, the final section is for you. It is written in language that a graduate of my introductory logic course should be able to understand (so it is not as mathematically rigorous as it could be). If you know this material, feel free to ignore the final section and focus on the next two, on the actual functioning of the program.
 
-## Practice Logical Syntax
+## Practical Logical Syntax
 
 This part of the program allows you to write strings of symbols and see whether they are well-formed formulas. You can include the outermost set of parentheses in your formula or leave it off. Right now, the program only allows you to enter propositional variables, not sentence letters, so there is no option to try and write sentences, atomic or compound. 
 
@@ -46,16 +45,6 @@ To use this part of the program:
 2. When finished, click 'Check your table' to find out whether your truth table is correct.
 
 If your table has an error, the program will let you know whether it is in the variable row or final row.
-
-## How will this program be improved in the future?
-
-I have many plans to continue building this program. Some things to look forward to:
-
-1. Using Vue.js or React.js for the user interface.
-2. Mobile compatibility.
-3. Intermediate truth table columns.
-4. Adding a new feature that allows one to determine the truth-values of compound sentences given an assignment of truth-values to atomic sentences.
-5. A version that does not run in the browser! Probably using Python.
 
 ## What is propositional logic?
 
